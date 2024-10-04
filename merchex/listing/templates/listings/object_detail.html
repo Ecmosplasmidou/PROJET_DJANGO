@@ -1,0 +1,30 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container" style="max-width: 700px;">
+
+            <h2>{{ listing.title }}</h2>
+
+                <ul>
+                        <li>Genre: {{ listing.get_type_display }}</li>
+                        <li>Année: {{ listing.year }}</li>
+                        <li>Groupe: {{ listing.band.name }}</li>
+                        <li>Disponible: {{ listing.sold|yesno|capfirst }}</li>
+                </ul>
+            <p>Source: <a href="{{ listing.description }}">{{ listing.description }}</a></p>
+            <br>
+            <button class="btn btn-success"><a href="{% url 'listings_edit' listing.id %}" class="text-white" style="text-decoration: none;">Modifier</a></button>
+            <button class="btn btn-danger"><a href="{% url 'listings_delete' listing.id %}" class="text-white" style="text-decoration: none;">Supprimer</a></button>
+            <!-- <form action="{% url 'listings_delete' listing.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer {{ listing.title|escapejs }} ?');" class="btn btn-danger">Supprimer</button>
+            </form> -->
+            <br>
+            <br>
+            <a href="{% url 'listings' %}">Retour vers la liste des objets</a>
+        </div>
+    </div>
+
+{% endblock %}

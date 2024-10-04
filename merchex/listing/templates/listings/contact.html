@@ -1,6 +1,16 @@
 {% extends "listings/base.html" %}
 
 {% block content %}
-    <h1>Contactez-nous</h1> 
-    <p>Envoyez-nous un message !</p>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container" style="max-width: 700px;">
+            <h1>Contactez-nous</h1> 
+            <h4>Envoyez-nous un message !</h4>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                    {{ form.as_p }}
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    </div>
 {% endblock %}

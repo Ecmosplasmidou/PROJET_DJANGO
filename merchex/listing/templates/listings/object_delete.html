@@ -1,0 +1,18 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container" style="max-width: 700px;">
+        <h1>Supprimer l'annonce'</h1>
+
+        <p>Etes-vous sûr de vouloir supprimer l'annonce : <b>{{ listing.title }}</b> ?</p>
+
+        <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer" class="btn btn-danger">
+        </form>
+        </div>
+    </div>
+
+{% endblock %}

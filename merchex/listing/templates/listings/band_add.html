@@ -1,0 +1,28 @@
+{% extends "listings/base.html" %}
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = document.getElementById('messages');
+            if (messages) {
+                alert(messages.textContent);
+            }
+        });
+    </script> -->
+
+{% block content %}
+
+<!-- <div class="centered-div"> -->
+    <h1>Ajouter un groupe</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Enregistrer">
+    </form>
+    <!-- <div id="messages">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div> -->
+<!-- </div> -->
+
+{% endblock %}
